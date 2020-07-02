@@ -1,0 +1,10 @@
+[build]
+  # the root website directory
+  publish = "."
+  # the build command
+  command = "echo 'I be building' "
+
+[[redirects]]
+  from = "/api/shibes"
+  to = "http://shibe.online/api/shibes"
+  status = 200
