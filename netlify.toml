@@ -1,10 +1,16 @@
 [build]
   # the root website directory
-  publish = "."
+  publish = ""
   # the build command
   command = "echo 'I be building' "
+  functions = "func/"
 
 [[redirects]]
   from = "/api/shibes"
   to = "http://shibe.online/api/shibes"
+  status = 200
+
+[[redirects]]
+  from = "/api/yes"
+  to = "/.netlify/functions/yep"
   status = 200

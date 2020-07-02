@@ -3,32 +3,38 @@ body {
   padding: 0;
 }
 
+#api {
+  background-color: crimson;
+  color: white;
+}
+
 #header {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-#shibe-one {
+#shibe {
   background-color: lightskyblue;
   color: white;
 }
 
-#shibe-two {
-  background-color: sandybrown;
-  color: white;
-}
-
-#shibe-one, #shibe-two {
+#shibe, #yep, #api {
   cursor: pointer;
   display: inline-block;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 3vw;
   text-align: center;
   transition: color 0.75s, opacity 0.75s;
-  width: 50%;
+  width: 33.33%;
+  width: calc(100% / 3);
 }
 
-#shibe-one:hover, #shibe-two:hover {
+#shibe:hover, #yep:hover, #api:hover {
   color: #EEE;
   opacity: 0.6;
+}
+
+#yep {
+  background-color: sandybrown;
+  color: white;
 }
