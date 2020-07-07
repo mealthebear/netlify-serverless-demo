@@ -14,3 +14,8 @@
   from = "/api/yes"
   to = "/.netlify/functions/yep"
   status = 200
+
+[[redirects]]
+  from ="/api/cluster"
+  to = "/.netlify/functions/cluster"
+  status = 200

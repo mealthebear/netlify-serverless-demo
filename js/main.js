@@ -3,6 +3,7 @@ const URL = 'api/shibes';
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('shibe').addEventListener('click', getShibe);
   document.getElementById('yep').addEventListener('click', getYes);
+  document.getElementById('api').addEventListener('click', getImage);
 });
 
 function getShibe(ev) {
@@ -29,4 +30,15 @@ function getYes(ev) {
       document.getElementById('header').appendChild(para);
     })
     .catch((error) => console.log('Something went wrong!', error));
+}
+
+const getImage = (ev) => {
+  console.log('Getting images!');
+  let url = '/api/cluster';
+  fetch(url)
+    .then(response => response.json())
+    .then(content => {
+      console.log(content);
+    })
+    .catch(error => console.log('Something went wrong!', error));
 }
