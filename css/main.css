@@ -8,6 +8,11 @@ body {
   color: white;
 }
 
+#api-container {
+  padding: 1vw;
+  white-space: nowrap;
+}
+
 #header {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -19,13 +24,15 @@ body {
 }
 
 #shibe, #yep, #api {
+  border-radius: 0.5vw;
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 3vw;
   text-align: center;
   transition: color 0.75s, opacity 0.75s;
-  width: 33.33%;
+  white-space: normal;
   width: calc(100% / 3);
 }
 

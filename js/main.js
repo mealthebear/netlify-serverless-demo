@@ -1,44 +1,48 @@
-const URL = 'api/shibes';
-
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('shibe').addEventListener('click', getShibe);
-  document.getElementById('yep').addEventListener('click', getYes);
-  document.getElementById('api').addEventListener('click', getImage);
+  document.getElementById('api').addEventListener('click', getImageTest);
+  document.getElementById('shibe').addEventListener('click', getShibeTest);
+  document.getElementById('yep').addEventListener('click', getYesTest);
 });
 
-function getShibe(ev) {
+const getImageTest = async ev => {
   ev.preventDefault();
-  console.log('get shibe picture; woof!');
-  fetch(URL)
-      .then((response) => response.json())
-      .then((content) => {
-        var img = document.createElement('IMG');
-        img.src = content;
-        document.body.appendChild(img);
-      })
-      .catch((error) => console.log('Whoops something went wrong!', error));
-}
-
-function getYes(ev) {
-  console.log('Getting yes!');
-  let url = '/api/yes';
-  fetch(url)
-    .then((response) => response.json())
-    .then((content) => {
-      let para = document.createElement('P');
-      para.innerHTML = content.msg;
-      document.getElementById('header').appendChild(para);
-    })
-    .catch((error) => console.log('Something went wrong!', error));
-}
-
-const getImage = (ev) => {
-  console.log('Getting images!');
   let url = '/api/cluster';
-  fetch(url)
-    .then(response => response.json())
-    .then(content => {
-      console.log(content);
-    })
-    .catch(error => console.log('Something went wrong!', error));
+
+  try {
+    const response = await fetch(url);
+    const content = await response.json();
+    console.log(content);
+  } catch(error) {
+      console.log('Something went wrong', error);
+  }
+}
+
+const getShibeTest = async ev => {
+  ev.preventDefault();
+  let url = 'api/shibes'
+  let img = document.createElement('IMG');
+
+  try {
+    const response = await fetch(url);
+    const content = await response.json();
+    img.src = content;
+    document.body.appendChild(img);
+  } catch (error) {
+      console.log('Something went wrong', error);
+  }
+}
+
+const getYesTest = async ev => {
+  ev.preventDefault();
+  let url = '/api/yes';
+  let para = document.createElement('P');
+
+  try {
+    const response = await fetch(url);
+    const content = await response.json();
+    para.innerHTML = content.msg;
+    document.getElementById('header').appendChild(para);
+  } catch(error) {
+      console.log('Something went wrong', error);
+  }
 }
