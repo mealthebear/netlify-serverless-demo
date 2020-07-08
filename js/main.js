@@ -12,6 +12,7 @@ const getImageTest = async ev => {
     const response = await fetch(url);
     const content = await response.json();
     console.log(content);
+    return content;
   } catch(error) {
       console.log('Something went wrong', error);
   }
