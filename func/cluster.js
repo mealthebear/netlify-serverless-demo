@@ -1,44 +1,56 @@
 // /.netlify/functions/cluster
 
-let imageData = {
-  "clusters": {
-    "342c7b12c01511ea8d9aacde48001122": {
+let CLUSTER_DATA = [
+    {
       "cluster_id": "342c7b12c01511ea8d9aacde48001122",
+      "cluster_images": ["https://live.staticflickr.com/4064/4627244344_72ee6dd671_o.jpg"],
       "cluster_lat": 32.9446,
       "cluster_lon": -118.329,
       "level": "1",
       "type": "location"
     },
-    "342e0f9ac01511ea8d9aacde48001122": {
+    {
       "cluster_id": "342e0f9ac01511ea8d9aacde48001122",
+      "cluster_images": ["https://live.staticflickr.com/4064/4627244344_72ee6dd671_o.jpg"],
       "cluster_lat": 32.9446,
       "cluster_lon": -118.329,
       "level": "2",
       "type": "location"
     },
-    "342fa846c01511ea8d9aacde48001122": {
+    {
       "cluster_id": "342fa846c01511ea8d9aacde48001122",
+      "cluster_images": ["https://live.staticflickr.com/4064/4627244344_72ee6dd671_o.jpg"],
       "cluster_lat": 32.9446,
       "cluster_lon": -118.329,
       "level": "3",
       "type": "location"
     },
-    "34310736c01511ea8d9aacde48001122": {
+    {
       "cluster_id": "34310736c01511ea8d9aacde48001122",
+      "cluster_images": ["https://live.staticflickr.com/4064/4627244344_72ee6dd671_o.jpg"],
       "cluster_lat": 32.9446,
       "cluster_lon": -118.329,
       "level": "4",
       "type": "location"
     },
-    "357287dcc01511ea8d9aacde48001122": {
+    {
       "cluster_id": "357287dcc01511ea8d9aacde48001122",
+      "cluster_images": [
+        "https://live.staticflickr.com/65535/48594836732_7f724acda0_o.jpg",
+        "https://live.staticflickr.com/7346/12895881305_3da654bbc4_o.jpg",
+        "https://live.staticflickr.com/8231/8542817131_59638a5829_o.jpg",
+        "https://live.staticflickr.com/65535/49038370421_709e11abd2_o.jpg",
+        "https://live.staticflickr.com/8155/7584074712_991a8e5529_o.jpg",
+        "https://live.staticflickr.com/65535/48266686127_a2f46e3a0d_b.jpg"
+    ],
       "cluster_lat": 32.9663,
       "cluster_lon": -117.265,
       "level": "1",
       "type": "location"
     }
-  },
-  "images": [
+  ]
+
+const IMAGE_DATA = [
     {
       "filename": null,
       "title": "DSC_2031",
@@ -232,12 +244,14 @@ let imageData = {
       ]
     }
   ]
-}
 
 exports.handler = (event, context, callback) => {
 
   callback(null, {
     statusCode: 200,
-    body: JSON.stringify({ images: imageData })
+    body: JSON.stringify({ 
+      clusters: CLUSTER_DATA,
+      images: IMAGE_DATA,
+     })
   });
 }
